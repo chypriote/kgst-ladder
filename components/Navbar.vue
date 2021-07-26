@@ -1,9 +1,21 @@
 <template>
 	<nav class="navbar">
-		<nuxt-link to="/power">Power</nuxt-link>
-		<nuxt-link to="/heroes">Heroes</nuxt-link>
-		<nuxt-link to="/vip">VIP</nuxt-link>
-		<nuxt-link to="/vip0">VIP0</nuxt-link>
+		<nuxt-link to="/power" title="Highest Kingdom Power">
+			<span class="desktop">Kingdom Power</span>
+			<span class="mobile">Power</span>
+		</nuxt-link>
+		<nuxt-link to="/heroes" title="Most heroes">
+			<span class="desktop">Most Heroes</span>
+			<span class="mobile">Heroes</span>
+		</nuxt-link>
+		<nuxt-link to="/vip" title="Highest VIP">
+			<span class="desktop">Highest VIP</span>
+			<span class="mobile">VIP</span>
+		</nuxt-link>
+		<nuxt-link to="/vip0" title="Most powerful VIP0">
+			<span class="desktop">VIP0 Only</span>
+			<span class="mobile">VIP0</span>
+		</nuxt-link>
 	</nav>
 </template>
 
@@ -44,5 +56,12 @@ a {
 		background-color: var(--text-color-primary);
 		color: white;
 	}
+}
+.desktop {display: none;}
+.mobile {display: block;}
+
+@media (min-width: 768px) {
+	.desktop {display: block;}
+	.mobile {display: none;}
 }
 </style>

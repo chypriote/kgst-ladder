@@ -39,6 +39,7 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: black;
 	&.nuxt-link-active, &:hover {
 		background-color: var(--text-color-primary);
 		color: white;

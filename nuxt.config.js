@@ -38,9 +38,9 @@ export default {
 		url: process.env.STRAPI_URL || 'http://localhost:1337',
 	},
 	pwa: {
-		manifest: {
-			lang: 'en',
-		},
+		manifest: { lang: 'en' },
+		icon: { fileName: 'favicon.png', theme_color: '#00d1b2', background_color: '#0f1923' },
+		meta: { theme_color: '#0f1923' },
 	},
 	build: {
 		devtools: isDev,

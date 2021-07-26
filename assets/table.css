@@ -12,7 +12,7 @@ table {
 }
 thead {
 	tr {border-top: 0;}
-	th, td {
+	th {
 		font-size: 1rem;
 		text-transform: uppercase;
 		color: #9a9a9a;

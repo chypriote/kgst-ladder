@@ -20,5 +20,10 @@ export default Vue.extend({
 <style scoped>
 .wrapper {
 	padding-top: 3rem;
+	@media (min-width: 768px) {
+		margin: auto;
+		width: 50%;
+		padding-top: 5rem;
+	}
 }
 </style>

@@ -30,4 +30,7 @@ export interface Player {
 	favorite: boolean
 	inactive: boolean | null
 	alliance: Alliance|null
+
+	updated_at: string
+	created_at: string
 }

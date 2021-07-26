@@ -2,6 +2,9 @@
 	<table>
 		<thead>
 		<tr>
+			<td colspan="5">{{ `Last updated ${date(players[0].updated_at)}` }}</td>
+		</tr>
+		<tr>
 			<th></th>
 			<th class="player">Player</th>
 			<th class="stat">VIP</th>
@@ -28,6 +31,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { parseISO, format } from 'date-fns'
 import { Player } from '~/types/Player'
 
 export default Vue.extend({
@@ -38,6 +42,9 @@ export default Vue.extend({
 			required: true,
 		},
 	},
+	methods: {
+		date: (value: string): string => format(parseISO(value), 'dd/MM'),
+	},
 })
 </script>
 
@@ -47,6 +54,14 @@ thead th {
 	top: 3rem;
 	z-index: 2;
 	background-color: var(--background-color);
+	@media (min-width: 768px) {
+		top: 3rem;
+	}
+}
+thead td {
+	font-size: .9rem;
+	color: #9a9a9a;
+	padding-left: 0;
 }
 tbody td {
 	vertical-align: middle;

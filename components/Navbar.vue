@@ -28,11 +28,20 @@ export default Vue.extend({
 	box-sizing: border-box;
 	border-bottom: 1px solid #eee;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 }
 a {
 	text-decoration: none;
 	text-transform: uppercase;
+	flex-grow: 1;
+	transition: all 200ms ease-in-out;
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&.nuxt-link-active, &:hover {
+		background-color: var(--text-color-primary);
+		color: white;
+	}
 }
 </style>

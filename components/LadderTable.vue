@@ -17,7 +17,10 @@
 			<td class="rank">{{ index + 1 }}</td>
 			<td>
 				<div class="player-details">
-					<div class="name">{{ player.name }}</div>
+					<div class="name">
+						<span v-if="player.inactive === true" title="Player seems inactive">⏱</span>
+						{{ player.name }}
+					</div>
 					<div class="details">{{ `S${player.server}` }} <template v-if="player.alliance">{{ ` - ${player.alliance.name}` }}</template></div>
 				</div>
 			</td>

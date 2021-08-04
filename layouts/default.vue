@@ -1,9 +1,7 @@
 <template>
 	<main id="main">
 		<navbar />
-		<div class="wrapper">
-			<nuxt />
-		</div>
+		<nuxt />
 	</main>
 </template>
 
@@ -16,14 +14,3 @@ export default Vue.extend({
 	components: { Navbar },
 })
 </script>
-
-<style scoped>
-.wrapper {
-	padding-top: 3rem;
-	@media (min-width: 768px) {
-		margin: auto;
-		width: 50%;
-		padding-top: 5rem;
-	}
-}
-</style>

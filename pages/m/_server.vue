@@ -11,8 +11,8 @@ import LadderTable from '~/components/LadderTable.vue'
 
 export default Vue.extend({
 	components: { LadderTable },
-	async asyncData ({ store }) {
-		await store.dispatch('FETCH_228_LADDER')
+	async asyncData ({ store, params }) {
+		await store.dispatch('FETCH_MERGER_LADDER', params.server)
 	},
 	computed: {
 		players (): Player[] { return this.$store.state.players },

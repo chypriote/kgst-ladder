@@ -26,7 +26,10 @@ export const actions: ActionTree<RootState, RootState> = {
 	async FETCH_HERO_LADDER ({ commit }) {
 		commit('setPlayers', await this.$strapi.find('players', { _sort: 'heroes:desc,power:desc' }))
 	},
-	async FETCH_228_LADDER ({ commit }) {
-		commit('setPlayers', await this.$strapi.find('players', { _sort: 'power:desc', 'server.merger': 228 }))
+	async FETCH_SERVER_LADDER ({ commit }, payload) {
+		commit('setPlayers', await this.$strapi.find('players', { _sort: 'power:desc', server: payload }))
+	},
+	async FETCH_MERGER_LADDER ({ commit }, payload) {
+		commit('setPlayers', await this.$strapi.find('players', { _sort: 'power:desc', 'server.merger': payload }))
 	},
 }

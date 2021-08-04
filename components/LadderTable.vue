@@ -1,7 +1,7 @@
 <template>
 	<table>
 		<thead>
-		<tr>
+		<tr v-if="players.length">
 			<td colspan="5">{{ `Last updated ${date(players[0].updated_at)}` }}</td>
 		</tr>
 		<tr>

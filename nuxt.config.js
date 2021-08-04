@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const isDev = process.env.context !== 'production'
 
 export default {
@@ -5,6 +7,16 @@ export default {
 	components: false,
 	telemetry: false,
 	dev: isDev,
+	generate: {
+		async routes () {
+			const todo = []
+			await axios.get(`${process.env.STRAPI_URL}/servers`)
+				.then(res => res.data.forEach(serv => todo.push(`/s/${serv.id}`)))
+			await axios.get(`${process.env.STRAPI_URL}/servers/mergers`)
+				.then(res => res.data.forEach(id => todo.push(`/m/${id}`)))
+			return todo
+		},
+	},
 	head: {
 		title: 'kingsladder',
 		meta: [

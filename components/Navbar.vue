@@ -1,5 +1,5 @@
 <template>
-	<nav class="navbar">
+	<nav class="navbar container">
 		<div class="menu menu-left">
 			<nuxt-link to="/power" title="Highest Kingdom Power" class="menu-item left">
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/9/9d/HeroIcon.png" alt="Heroes" />
@@ -59,11 +59,8 @@ export default Vue.extend({
 <style scoped>
 .navbar {
 	position: relative;
-	z-index: 99999;
-	width: 1060px;
-	max-width: 100%;
-	margin: 0 auto;
-	padding: 2rem 0 0;
+	z-index: 1000;
+	margin: 3rem auto 2rem;
 	height: 5rem;
 	display: flex;
 	align-items: center;
@@ -74,7 +71,7 @@ export default Vue.extend({
 	flex: 1;
 	height: 100%;
 	&.menu-left {background: #3a3a3a;margin-right: 1rem;}
-	&.menu-right {background: rgba(247, 198, 31, .48);margin-left: 1rem;}
+	&.menu-right {background: var(--state-primary-35);margin-left: 1rem;}
 }
 .menu-item {
 	position: relative;
@@ -94,6 +91,7 @@ export default Vue.extend({
 	color: #e8e8e8;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, .53);
 	opacity: .9;
+	transition: all 200ms ease-in-out;
 	img {
 		max-height: 2.5rem;
 		opacity: 1;
@@ -123,45 +121,6 @@ export default Vue.extend({
 		filter: invert(0) drop-shadow(1px 1px 1px #434343ad);
 		opacity: .9;
 		&:hover {opacity: 1;position: relative;top: -1.5px;}
-	}
-}
-.background {
-	margin-right: 0;
-	margin-left: 0;
-	position: relative;
-	z-index: 3;
-	height: 80px;
-	background: transparent;
-	width: 100%;
-	.bg-left {
-		margin: 0;
-		display: inline-block;
-		float: left;
-		z-index: 2;
-		background: #3a3a3a;
-		position: relative;
-		width: calc(50% - 0px);
-		height: 80px;
-		padding: 0;
-		text-align: left;
-		font-size: 1.25rem;
-		line-height: inherit;
-		white-space: nowrap;
-	}
-	.bg-right {
-		margin: 0;
-		display: inline-block;
-		float: right;
-		z-index: 2;
-		background: rgba(247, 198, 31, .48);
-		position: relative;
-		width: calc(50% - 2px);
-		height: 80px;
-		padding: 0;
-		text-align: left;
-		font-size: 1.25rem;
-		line-height: inherit;
-		white-space: nowrap;
 	}
 }
 </style>

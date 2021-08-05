@@ -8,6 +8,8 @@ export default {
 	telemetry: false,
 	dev: isDev,
 	generate: {
+		concurrency: 200,
+		interval: 200,
 		async routes () {
 			const todo = []
 			console.log(`${process.env.STRAPI_URL}/servers`, `${process.env.STRAPI_URL}/servers/mergers`)

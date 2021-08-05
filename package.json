@@ -37,7 +37,7 @@
     "reset-css": "^5.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.14",
+    "@babel/eslint-parser": "^7.15",
     "@nuxt/types": "^2.15",
     "@nuxt/typescript-build": "^2.1",
     "@nuxtjs/eslint-config-typescript": "^6.0",

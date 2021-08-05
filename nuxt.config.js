@@ -10,6 +10,7 @@ export default {
 	generate: {
 		async routes () {
 			const todo = []
+			console.log(`${process.env.STRAPI_URL}/servers`, `${process.env.STRAPI_URL}/servers/mergers`)
 			await axios.get(`${process.env.STRAPI_URL}/servers`)
 				.then(res => res.data.forEach(serv => todo.push(`/s/${serv.id}`)))
 			await axios.get(`${process.env.STRAPI_URL}/servers/mergers`)

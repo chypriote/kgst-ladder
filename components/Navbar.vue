@@ -1,7 +1,7 @@
 <template>
 	<nav class="navbar container">
 		<div class="menu menu-left">
-			<nuxt-link to="/power" title="Highest Kingdom Power" class="menu-item left">
+			<nuxt-link to="/heroes" title="Highest Kingdom Power" class="menu-item left">
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/9/9d/HeroIcon.png" alt="Heroes" />
 				Heroes
 			</nuxt-link>
@@ -9,15 +9,15 @@
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/a/a0/MaidenIcon.png" alt="Maidens" />
 				Maidens
 			</nuxt-link>
-			<nuxt-link to="/vip" title="Highest VIP" class="menu-item left">
+			<nuxt-link to="/events" title="Highest VIP" class="menu-item left">
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Events" />
 				Events
 			</nuxt-link>
-			<nuxt-link to="/vip" title="Highest VIP" class="menu-item left">
+			<nuxt-link to="/challenges" title="Highest VIP" class="menu-item left">
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Events" />
 				Challenges
 			</nuxt-link>
-			<nuxt-link to="/vip" title="Highest VIP" class="menu-item left">
+			<nuxt-link to="/items" title="Highest VIP" class="menu-item left">
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/1/19/TreasureIcon.png" alt="Events" />
 				Items
 			</nuxt-link>

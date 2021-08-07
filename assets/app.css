@@ -39,6 +39,10 @@ body {
 	color: inherit
 }
 a {
-	color: #E4C049
+	color: var(--state-primary)
 	text-decoration: none
+}
+img {
+	height: auto
+	max-width: 100%
 }

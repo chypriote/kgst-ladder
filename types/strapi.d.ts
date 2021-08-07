@@ -20,7 +20,7 @@ export interface StrapiInstance {
 
 	find (entity: string, searchParams?: SearchParameters): Promise<Array<any>>
 	count (entity: string, searchParams?: SearchParameters): Promise<number>
-	findOne (entity: string, id: number): Promise<any>
+	findOne(entity: string, id: string | number): Promise<any>
 	create (entity: string, data: any): Promise<any>
 	update (entity: string, id: number, data: any): Promise<any>
 	delete (entity: string, id: number): Promise<void>

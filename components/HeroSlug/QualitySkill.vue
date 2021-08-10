@@ -1,5 +1,6 @@
 <template>
 	<div class="quality-skill" :class="{'--unlockable': skill.unlockable}">
+		<div v-if="skill.unlockable" class="unlockable hint--top" :aria-label="skill.skins[0].name">🔒</div>
 		<header>{{ skill.name }}</header>
 		<div class="details">
 			<img :src="require(`~/assets/${skill.attribute}.png`)" :alt="skill.attribute">
@@ -30,23 +31,21 @@ export default Vue.extend({
 	border: 1px solid rgba(255, 255, 255, .06);
 	box-shadow: 0 1px 6px -1px rgba(0, 0, 0, .35);
 	background: rgb(46, 46, 46);
-	margin: .25rem;
 	flex-direction: column;
 	position: relative;
-	&.--unlockable::before {
-		content: "🔒";
-		top: 0;
-		right: 0;
-		background: rgb(180 36 36) no-repeat;
-		background-size: auto 86%;
-		padding: .125rem .25rem;
-		color: #fff;
-		font-weight: bold;
-		letter-spacing: .09em;
-		font-size: 9px;
-		position: absolute;
-		z-index: 9;
-	}
+}
+.unlockable {
+	top: 0;
+	right: 0;
+	background: rgb(180 36 36) no-repeat;
+	background-size: auto 86%;
+	padding: .125rem .25rem;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: .09em;
+	font-size: 9px;
+	position: absolute;
+	z-index: 9;
 }
 header {
 	font-size: .9rem;

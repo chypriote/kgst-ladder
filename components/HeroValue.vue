@@ -5,10 +5,11 @@
 			<span>{{ type }}</span>
 		</header>
 		<div class="display">
+			<div class="value-text">{{ value |numeral }}</div>
 			<div class="value" :class="`${type}-value`">
-				<span v-for="i of value" :key="i" class="item" />
+				<span v-for="i of displayed" :key="i" class="item" />
 			</div>
-			<div class="rating"><div class="rate">{{ value }}</div>/10</div>
+			<div class="rating"><div class="rate">{{ percent }}</div>/10</div>
 		</div>
 	</div>
 </template>
@@ -16,6 +17,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Attribute } from '~/types/constants'
+
+const max_stats = {
+	military: 916107663,
+	fortune: 833144634,
+	provisions: 832416617,
+	inspiration: 513908336,
+}
 
 export default Vue.extend({
 	name: 'HeroValue',
@@ -28,6 +36,10 @@ export default Vue.extend({
 			type: Number,
 			required: true,
 		},
+	},
+	computed: {
+		percent (): number { return Math.round(this.value / max_stats[this.type] * 10) },
+		displayed (): number { return Math.max(1, this.percent) },
 	},
 })
 </script>
@@ -68,6 +80,12 @@ export default Vue.extend({
 		&.fortune-value .item {background-color: #ecda0980;}
 		&.provisions-value .item {background-color: #2ecc7180;}
 		&.inspiration-value .item {background-color: #1073a280;}
+	}
+	.value-text {
+		font-size: 1.3rem;
+		color: var(--text-color-muted);
+		margin-right: 1rem;
+		min-width: 4rem;
 	}
 	.rating {
 		flex: 0 0 10%;

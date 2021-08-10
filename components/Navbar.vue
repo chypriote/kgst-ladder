@@ -13,8 +13,8 @@
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Events" />
 				Events
 			</nuxt-link>
-			<nuxt-link to="/challenges" title="Highest VIP" class="menu-item left">
-				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Events" />
+			<nuxt-link to="/calendar" title="Calendar" class="menu-item left">
+				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Calendar" />
 				Challenges
 			</nuxt-link>
 			<nuxt-link to="/items" title="Highest VIP" class="menu-item left">

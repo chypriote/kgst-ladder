@@ -78,8 +78,11 @@ h2 {
 .quality-skills {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: flex-start;
 	.quality-skill {
-		flex: 0 1 25%;
+		flex: 1 1 25%;
+		max-width: 29%;
+		margin: .25rem;
 	}
 }
 </style>

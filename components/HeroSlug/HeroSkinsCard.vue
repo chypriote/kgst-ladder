@@ -4,6 +4,7 @@
 		<div class="skins row">
 			<div v-for="skin of hero.skins" :key="skin.id" class="col col-3 skin">
 				<img v-if="skin.picture" :src="skin.picture.formats.medium.url" :alt="skin.name" />
+				{{ skin.name }}
 			</div>
 		</div>
 	</div>
@@ -39,6 +40,5 @@ h2 {
 }
 .skins {
 	display: flex;
-	img {height: 5rem;}
 }
 </style>

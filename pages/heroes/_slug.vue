@@ -44,7 +44,6 @@ export default Vue.extend({
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
 	background: rgb(38, 38, 38);
 	color: white;
-	overflow: hidden;
 	&.hero {margin-bottom: 2rem;}
 	&.maiden {margin-bottom: 2rem;}
 	&.hero-skills {margin-bottom: 2rem;}

@@ -22,6 +22,13 @@ export interface HeroGroup {
 	paragons: Paragon[]
 	heroes: Hero[]
 }
+export interface HeroMaxStats {
+	military: string
+	fortune: string
+	provisions: string
+	inspiration: string
+	hero: Hero
+}
 
 export type Hero = {
 	id: number
@@ -43,6 +50,8 @@ export type Hero = {
 	quality_skills: QualitySkill[]
 	paragons: Paragon[]
 	frame?: any
+
+	hero_max_stat: HeroMaxStats
 
 	players: Player
 	player_heroes: PlayerHero[]

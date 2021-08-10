@@ -73,7 +73,7 @@ export default Vue.extend({
 	components: { SmallHeroCard, HeroNav },
 	layout: 'default',
 	async asyncData ({ $strapi }): { heroes: Hero[] } {
-		const heroes = await $strapi.find('heroes', { _sort: 'hid:asc' })
+		const heroes = await $strapi.find('heroes', { _sort: 'hid:asc', _limit: 500 })
 		return { heroes }
 	},
 })

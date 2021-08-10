@@ -25,7 +25,7 @@
 					<div>{{ paragon.cost }}x <span class="item">{{ paragon.item.name }}</span></div>
 					<div>per level</div>
 				</template>
-				<template v-else>One level per {{ group }}</template>
+				<template v-if="group">One level per {{ group }}</template>
 			</div>
 		</div>
 	</div>

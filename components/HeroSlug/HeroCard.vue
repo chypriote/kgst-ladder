@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col col-4">
 				<div class="hero-left">
-					<img v-if="hero.picture" :src="hero.picture.formats.medium.url" :alt="hero.name" />
+					<img v-if="hero.picture" :src="hero.picture.formats.medium.url" :alt="hero.name" class="hero-picture" />
 					<div class="stars"><span v-for="i of hero.stars" :key="`star-${i}`">⭐</span></div>
 					<div class="focuses">
 						<div class="focus hint--top" :aria-label="hero.focus">
@@ -18,6 +18,7 @@
 			<div class="col col-8 right">
 				<div class="hero-stats">
 					<h1>{{ hero.name }}</h1>
+					<div v-if="hero.hid" class="hero-id">{{ `#${hero.hid}` }}</div>
 
 					<div class="values">
 						<hero-value :type="'military'" :value="10" />
@@ -82,6 +83,14 @@ export default Vue.extend({
 	flex-direction: column;
 	justify-content: space-between;
 	padding: .5rem 1rem 1rem;
+	.hero-id {
+		position: absolute;
+		top: .5rem;
+		right: 1rem;
+		font-weight: bold;
+		font-size: 1.7rem;
+		color: var(--text-color-muted);
+	}
 }
 h1 {
 	font-size: 2rem;

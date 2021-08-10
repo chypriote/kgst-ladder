@@ -25,6 +25,7 @@
 					<div>{{ paragon.cost }}x <span class="item">{{ paragon.item.name }}</span></div>
 					<div>per level</div>
 				</template>
+				<template v-else>One level per {{ group }}</template>
 			</div>
 		</div>
 	</div>
@@ -39,6 +40,11 @@ export default Vue.extend({
 		paragon: {
 			type: Object,
 			required: true,
+		},
+		group: {
+			type: String,
+			required: false,
+			default: null,
 		},
 	},
 })

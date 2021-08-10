@@ -50,9 +50,6 @@
 				<hero-nav />
 			</div>
 			<div class="row">
-				<div class="col col-12">
-					<hero-card />
-				</div>
 				<div class="col">
 					<div class="heroes">
 						<small-hero-card v-for="hero of heroes" :key="hero.id" :hero="hero" />
@@ -69,14 +66,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import HeroNav from '~/components/HeroNav.vue'
-import HeroCard from '~/components/HeroCard.vue'
 import SmallHeroCard from '~/components/SmallHeroCard.vue'
+import { Hero } from '~/types/Hero'
 
 export default Vue.extend({
-	components: { SmallHeroCard, HeroCard, HeroNav },
+	components: { SmallHeroCard, HeroNav },
 	layout: 'default',
-	async asyncData ({ $strapi }) {
-		const heroes = await $strapi.find('heroes')
+	async asyncData ({ $strapi }): { heroes: Hero[] } {
+		const heroes = await $strapi.find('heroes', { _sort: 'hid:asc' })
 		return { heroes }
 	},
 })

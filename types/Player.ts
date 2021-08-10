@@ -1,12 +1,7 @@
-
-export interface Alliance {
-	id: number
-	aid: number
-	name: string
-	power: number
-	level: number
-	reputation: number
-}
+import { Alliance } from '~/types/Alliance'
+import { Server } from '~/types/Server'
+import { AllianceMember } from '~/types/AllianceMember'
+import { PlayerHero } from '~/types/PlayerHero'
 
 export interface Player {
 	id: number
@@ -14,7 +9,7 @@ export interface Player {
 	name: string
 	vip: number
 	power: number
-	server: number
+	previous?: number
 
 	military: number
 	fortune: number
@@ -26,10 +21,16 @@ export interface Player {
 	children: number
 	intimacy: number
 
+	battle?: number;
+	ratio?: number;
+
 	notes: string
 	favorite: boolean
 	inactive: boolean | null
 	alliance: Alliance|null
+	server: Server
+	alliance_members: AllianceMember[]
+	player_heroes: PlayerHero[]
 
 	updated_at: string
 	created_at: string

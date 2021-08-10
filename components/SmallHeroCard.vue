@@ -2,7 +2,7 @@
 	<nuxt-link :to="`/heroes/${hero.slug}`" class="hero-card" :class="`--${hero.focus}`">
 		<header :title="hero.name">{{ hero.name }}</header>
 		<div class="content">
-			<img v-if="hero.picture" :src="hero.picture.formats.small.url" :alt="hero.name" />
+			<img v-if="hero.picture" :src="hero.picture.formats.small.url" :alt="hero.name" class="hero-picture" />
 		</div>
 		<footer>
 			<div class="stars"><span v-for="i of hero.stars" :key="`star-${i}`">⭐</span></div>
@@ -41,6 +41,8 @@ export default Vue.extend({
 	overflow: hidden;
 	flex: 0 0 10%;
 	cursor: pointer;
+	display: flex;
+	flex-direction: column;
 	&.--balanced {background: radial-gradient(#dededecc, #959ca680);}
 	&.--military {background: radial-gradient(#ffa2a2cc, #a7132e80);}
 	&.--fortune {background: radial-gradient(#fdff9bcc, #ecda0980);}
@@ -51,6 +53,7 @@ export default Vue.extend({
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-grow: 1;
 	}
 	header {
 		color: #f7f7f7;
@@ -74,20 +77,21 @@ export default Vue.extend({
 		.stars {font-size: .75rem;padding-bottom: .25rem;}
 		.focuses {
 			position: relative;
+			display: inline-flex;
 			.focus {
 				max-height: 1rem;
 				max-width: 1rem;
 			}
 			.second {
 				position: absolute;
-				top: .75rem;
-				right: -1rem;
+				top: .3rem;
+				right: -.5rem;
 				max-height: .75rem;
 				max-width: .75rem;
 			}
 		}
 	}
-	img {
+	.hero-picture {
 		height: auto;
 		max-height: 8rem;
 		width: 100%;

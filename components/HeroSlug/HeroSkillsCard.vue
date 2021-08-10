@@ -6,10 +6,15 @@
 			<div class="quality-skills">
 				<quality-skill v-for="skill of orderedSkills" :key="skill.id" :skill="skill" />
 			</div>
-			<div class="section-title">Paragons</div>
-			<div class="paragons">
-				<paragon v-for="paragon of orderedParagon" :key="paragon.id" :paragon="paragon" />
-			</div>
+			<template v-if="hero.paragons.length || (hero.hero_group && hero.hero_group.paragons.length)">
+				<div class="section-title">Paragons</div>
+				<div class="paragons">
+					<paragon v-for="paragon of hero.paragons" :key="paragon.id" :paragon="paragon" />
+					<template v-if="hero.hero_group">
+						<paragon v-for="paragon of hero.hero_group.paragons" :key="paragon.id" :paragon="paragon" :group="hero.hero_group.name" />
+					</template>
+				</div>
+			</template>
 		</div>
 	</div>
 </template>
@@ -18,6 +23,8 @@
 import Vue from 'vue'
 import { orderBy } from 'lodash-es'
 import { Attribute } from '~/types/constants'
+import { Hero } from '~/types/Hero'
+import { QualitySkill as Skill } from '~/types/QualitySkill'
 import QualitySkill from '~/components/HeroSlug/QualitySkill.vue'
 import Paragon from '~/components/HeroSlug/Paragon.vue'
 
@@ -26,25 +33,20 @@ export default Vue.extend({
 	components: { Paragon, QualitySkill },
 	props: {
 		hero: {
-			type: Object,
+			type: Object as () => Hero,
 			required: true,
 		},
 	},
 	computed: {
-		orderedSkills () {
+		orderedSkills (): QualitySkill[] {
 			const attributes = Object.values(Attribute)
 			return orderBy(this.hero.quality_skills,
 				['unlockable', a => attributes.indexOf(a.attribute), 'stars'],
 				['desc', 'asc', 'desc']
 			)
 		},
-		quality () {
-			return this.hero.quality_skills.reduce((sum, s) => sum + s.stars, 0)
-		},
-		orderedParagon () {
-			const paragons = this.hero.paragons
-			this.hero.hero_group.paragons.forEach(p => paragons.push(p))
-			return paragons
+		quality (): number {
+			return this.hero.quality_skills.reduce((sum: number, s: Skill) => sum + s.stars, 0)
 		},
 	},
 })

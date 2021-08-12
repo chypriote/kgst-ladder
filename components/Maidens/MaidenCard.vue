@@ -42,7 +42,8 @@ export default Vue.extend({
 		margin-top: -1rem;
 	}
 	footer {
-		background: rgba(40, 53, 79, .9);
+		background: rgba(37, 37, 37, .91);
+		color: #fff;
 		height: 3rem;
 		display: flex;
 		align-items: center;
@@ -50,7 +51,6 @@ export default Vue.extend({
 		font-size: 1.3rem;
 		line-height: .9em;
 		text-transform: uppercase;
-		color: white;
 		font-weight: bold;
 		text-align: center;
 		padding: .5rem .5rem;
@@ -58,7 +58,7 @@ export default Vue.extend({
 	}
 	&:hover {
 		background-color: rgba(0, 0, 0, .5);
-		footer {background-color: #fff;color: #1a325e;}
+		footer {color: rgba(37, 37, 37, .91);background-color: #fff;}
 	}
 }
 </style>

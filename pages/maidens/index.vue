@@ -1,17 +1,15 @@
 <template>
 	<div id="index">
-		<div class="darker">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h1 class="page-title">Maidens</h1>
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1 class="page-title">Maidens</h1>
 				</div>
-				<div class="row">
-					<div class="col">
-						<div class="maidens">
-							<maiden-card v-for="maiden of maidens" :key="maiden.id" :maiden="maiden" />
-						</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="maidens">
+						<maiden-card v-for="maiden of maidens" :key="maiden.id" :maiden="maiden" />
 					</div>
 				</div>
 			</div>
@@ -36,10 +34,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.darker {
-	background: rgba(37, 37, 37, .91);
-	color: rgba(255, 255, 255, .7);
-}
 .page-title {margin: 1rem 0 2rem;}
 .maidens {
 	display: flex;

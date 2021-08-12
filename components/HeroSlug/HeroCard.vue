@@ -3,7 +3,9 @@
 		<div class="row">
 			<div class="col col-4">
 				<div class="hero-left">
-					<img v-if="hero.picture" :src="hero.picture.formats.medium.url" :alt="hero.name" class="hero-picture" />
+					<div class="hero-picture">
+						<img v-if="hero.picture" :src="hero.picture.formats.medium.url" :alt="hero.name" />
+					</div>
 					<div class="stars"><span v-for="i of hero.stars" :key="`star-${i}`">⭐</span></div>
 					<div class="focuses">
 						<div class="focus hint--top" :aria-label="hero.focus">
@@ -105,7 +107,9 @@ export default Vue.extend({
 <style scoped>
 .hero-left {
 	position: relative;
-	padding: .5rem 1rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 	.focuses {
 		position: absolute;
 		top: 1rem;
@@ -123,9 +127,15 @@ export default Vue.extend({
 		}
 	}
 }
+.hero-picture {
+	padding: .5rem 1rem;
+	flex-grow: 1;
+}
 .stars {
 	text-align: center;
 	font-size: 1.5rem;
+	line-height: 1.5;
+	padding: .5rem 1rem;
 }
 .col.right {
 	display: flex;

@@ -12,6 +12,7 @@ export interface Paragon {
 	fortune: number
 	provisions: number
 	inspiration: number
+	balanced: number
 	heroes: Hero[]
 	hero_groups: HeroGroup[]
 	item?: Item

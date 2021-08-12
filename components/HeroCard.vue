@@ -55,7 +55,7 @@ export default Vue.extend({
 		color: white;
 		text-shadow: 0 0 3px #00000040;
 		font-weight: bold;
-		letter-spacing: .05em;
+		letter-spacing: 4px;
 		width: 100%;
 		line-height: 20px;
 	}
@@ -86,7 +86,7 @@ export default Vue.extend({
 		margin: 3px 0 3px;
 		padding: 3px 6px 5px;
 		border-radius: 2px;
-		letter-spacing: .15em;
+		letter-spacing: 4px;
 		text-shadow: 0 0 10px rgba(0, 0, 0, .32);
 		font-weight: 500;
 		line-height: 1.1;

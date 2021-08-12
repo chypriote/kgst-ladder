@@ -38,6 +38,7 @@ export default Vue.extend({
 		},
 	},
 	computed: {
+		// @ts-ignore
 		percent (): number { return Math.round(this.value / max_stats[this.type] * 10) },
 		displayed (): number { return Math.max(1, this.percent) },
 	},
@@ -56,7 +57,7 @@ export default Vue.extend({
 			line-height: 1.5;
 			font-size: 1.1rem;
 			text-transform: uppercase;
-			letter-spacing: 2px;
+			letter-spacing: 4px;
 		}
 	}
 }
@@ -94,7 +95,7 @@ export default Vue.extend({
 		color: white;
 		text-shadow: 0 0 3px #2f2b27, 0 0 3px rgba(47, 43, 39, .66);
 		font-size: 1.5rem;
-		letter-spacing: .08em;
+		letter-spacing: 4px;
 		.rate {font-weight: bold;}
 	}
 }

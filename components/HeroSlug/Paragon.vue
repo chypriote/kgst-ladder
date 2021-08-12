@@ -70,7 +70,7 @@ export default Vue.extend({
 		padding: .125rem .25rem;
 		color: #fff;
 		font-weight: bold;
-		letter-spacing: .09em;
+		letter-spacing: 4px;
 		font-size: 9px;
 		position: absolute;
 		z-index: 9;

@@ -22,12 +22,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Hero } from '~/types/Hero'
 
 export default Vue.extend({
 	name: 'SmallHeroCard',
 	props: {
 		hero: {
-			type: Object,
+			type: Object as () => Hero,
 			required: true,
 		},
 	},

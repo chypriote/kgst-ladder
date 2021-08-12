@@ -56,9 +56,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col">Hello</div>
-			</div>
 		</div>
 	</div>
 </template>
@@ -72,7 +69,7 @@ import { Hero } from '~/types/Hero'
 export default Vue.extend({
 	components: { SmallHeroCard, HeroNav },
 	layout: 'default',
-	async asyncData ({ $strapi }): { heroes: Hero[] } {
+	async asyncData ({ $strapi }): Promise<{ heroes: Hero[] }> {
 		const heroes = await $strapi.find('heroes', { _sort: 'hid:asc', _limit: 500 })
 		return { heroes }
 	},
@@ -94,7 +91,7 @@ section {
 		text-transform: uppercase;
 		font-size: 1.2rem;
 		color: rgba(255, 255, 255, .8);
-		letter-spacing: .13em;
+		letter-spacing: 4px;
 		text-shadow: 0 1px 3px #0000005c;
 		font-weight: bold;
 	}

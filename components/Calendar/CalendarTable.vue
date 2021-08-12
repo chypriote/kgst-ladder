@@ -33,6 +33,11 @@ import {
 	startOfWeek
 } from 'date-fns'
 
+interface IDay {
+	date: Date
+	today: boolean
+	sameMonth: boolean
+}
 export default Vue.extend({
 	name: 'Calendar',
 	data: () => ({
@@ -43,14 +48,14 @@ export default Vue.extend({
 	}),
 	computed: {
 		calendar () {
-			const calendar = []
+			const calendar:IDay[][] = []
 			const today = new Date()
 			const rows = range(Math.ceil(getDaysInMonth(today) / 7) + 1)
 			const cols = range(7)
 			let current = startOfWeek(startOfMonth(today), { weekStartsOn: 1 })
 
 			rows.forEach(() => {
-				const week = []
+				const week: IDay[] = []
 				cols.forEach(() => {
 					week.push({
 						date: current,

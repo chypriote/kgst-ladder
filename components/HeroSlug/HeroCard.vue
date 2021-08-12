@@ -39,6 +39,7 @@ import { Hero } from '~/types/Hero'
 import { Attribute } from '~/types/constants'
 import { Paragon } from '~/types/Paragon'
 import { MaidenBond } from '~/types/MaidenBond'
+import { QualitySkill } from '~/types/QualitySkill'
 
 const frame = {
 	1: 125000 + 250000 + 400000 + 575000 + 750000,
@@ -62,20 +63,20 @@ export default Vue.extend({
 	methods: {
 		qualityBonus (attribute: Attribute): number {
 			return this.hero.quality_skills
-				.filter((s: Skill) => s.attribute === attribute)
-				.reduce((sum: number, s: Skill) => sum + s.stars, 0) * 0.1 * ((400 ^ 2) + 400 + 98)
+				.filter((s: QualitySkill) => s.attribute === attribute)
+				.reduce((sum: number, s: QualitySkill) => sum + s.stars, 0) * 0.1 * ((400 ^ 2) + 400 + 98)
 		},
 		maidenBonusValue (attribute: Attribute): number {
 			if (!this.hero.maiden) { return 0 }
 			return this.hero.maiden.maiden_bonds
 				.filter((b: MaidenBond) => b.attribute === attribute || b.second_attribute === attribute)
-				.reduce((sum: number, b: MaidenBond) => sum + (b.per_level * b.levels), 0)
+				.reduce((sum: number, b: MaidenBond) => sum + ((b.per_level || 0) * b.levels), 0)
 		},
 		maidenMultiplierValue (attribute: Attribute): number {
 			if (!this.hero.maiden) { return 0 }
 			return this.hero.maiden.maiden_bonds
-				.filter((b: MaidenBond) => b.attribute === attribute || b.second_attribute === attribute)
-				.reduce((sum: number, b: MaidenBond) => sum + (b.multiplier_per_level * b.levels), 0)
+				.filter((b: MaidenBond) => (b.attribute === attribute || b.second_attribute === attribute))
+				.reduce((sum: number, b: MaidenBond) => sum + ((b.multiplier_per_level || 0) * b.levels), 0)
 		},
 		bondBonus (attribute: Attribute): number {
 			return (this.qualityBonus(attribute) * this.maidenMultiplierValue(attribute)) + this.maidenBonusValue(attribute)
@@ -94,6 +95,7 @@ export default Vue.extend({
 				this.bondBonus(attribute) +
 				this.paragonBonus(attribute) +
 				this.bondBonus(attribute) * this.paragonValue(attribute) +
+				// @ts-ignore
 				frame[this.hero.stars]
 		},
 	},

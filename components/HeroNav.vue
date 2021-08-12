@@ -31,7 +31,7 @@ export default Vue.extend({
 	justify-content: center;
 	flex-direction: column;
 	text-transform: uppercase;
-	letter-spacing: .1em;
+	letter-spacing: 4px;
 	height: 5rem;
 	border: none;
 	background: var(--state-primary-35);

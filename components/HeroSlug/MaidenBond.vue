@@ -32,7 +32,7 @@ export default Vue.extend({
 	},
 	computed: {
 		isMultiplier (): boolean { return !!this.bond.multiplier_per_level },
-		perLevel (): number { return this.bond.per_level ?? this.bond.multiplier_per_level },
+		perLevel (): number { return this.bond.per_level ?? (this.bond.multiplier_per_level || 0) },
 	},
 })
 </script>

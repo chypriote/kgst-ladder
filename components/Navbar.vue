@@ -81,7 +81,7 @@ export default Vue.extend({
 	display: flex;
 	flex-direction: column;
 	text-transform: uppercase;
-	letter-spacing: .15em;
+	letter-spacing: 4px;
 	text-align: center;
 	line-height: 1.1em;
 	text-decoration: none;

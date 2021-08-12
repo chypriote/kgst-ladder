@@ -5,6 +5,7 @@ module.exports = {
 		node: true,
 	},
 	extends: ['eslint:recommended', 'prettier', '@nuxtjs/eslint-config-typescript', 'plugin:vue/strongly-recommended', 'plugin:nuxt/recommended'],
+	ignorePatterns: ['*.css'],
 	rules: {
 		camelcase: 'off',
 		'comma-dangle': [

@@ -38,7 +38,7 @@ export default Vue.extend({
 		},
 	},
 	computed: {
-		orderedSkills (): QualitySkill[] {
+		orderedSkills (): Skill[] {
 			const attributes = Object.values(Attribute)
 			return orderBy(this.hero.quality_skills,
 				['unlockable', a => attributes.indexOf(a.attribute), 'stars'],
@@ -67,7 +67,7 @@ h2 {
 .section-title {
 	text-transform: uppercase;
 	font-size: 1.2rem;
-	letter-spacing: .13em;
+	letter-spacing: 4px;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, .36);
 	font-weight: bold;
 	margin: 1rem 0 .5rem;

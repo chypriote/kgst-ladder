@@ -44,6 +44,7 @@ export default {
 	].filter(Boolean),
 	modules: [
 		'@nuxtjs/axios',
+		'@nuxt/content',
 		'@nuxtjs/pwa',
 		'@nuxtjs/strapi',
 		!isDev ? ['@nuxtjs/google-analytics', { id: process.env.google_analytics }] : '',

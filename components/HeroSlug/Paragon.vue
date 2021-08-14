@@ -1,31 +1,36 @@
 <template>
 	<div class="paragon">
-		<header>{{ paragon.name }}</header>
-		<div class="details">
-			<div class="attributes">
-				<div v-if="paragon.military" class="attribute military">
-					<img :src="require(`~/assets/attributes/military.png`)" alt="Military">
-					<div class="value">{{ paragon.military }} % (MAX {{ paragon.military * paragon.levels }}%)</div>
+		<div class="paragon-picture">
+			<img v-if="paragon.icon" :src="paragon.icon.url" :alt="paragon.name" />
+		</div>
+		<div class="paragon-info">
+			<header>{{ paragon.name }}</header>
+			<div class="details">
+				<div class="attributes">
+					<div v-if="paragon.military" class="attribute military">
+						<img :src="require(`~/assets/attributes/military.png`)" alt="Military">
+						<div class="value">{{ paragon.military }} % (MAX {{ paragon.military * paragon.levels }}%)</div>
+					</div>
+					<div v-if="paragon.fortune" class="attribute fortune">
+						<img :src="require(`~/assets/attributes/fortune.png`)" alt="Fortune">
+						<div class="value">{{ paragon.fortune }} % (MAX {{ paragon.fortune * paragon.levels }}%)</div>
+					</div>
+					<div v-if="paragon.provisions" class="attribute provisions">
+						<img :src="require(`~/assets/attributes/provisions.png`)" alt="Provisions">
+						<div class="value">{{ paragon.provisions }} % (MAX {{ paragon.provisions * paragon.levels }}%)</div>
+					</div>
+					<div v-if="paragon.inspiration" class="attribute inspiration">
+						<img :src="require(`~/assets/attributes/inspiration.png`)" alt="Inspiration">
+						<div class="value">{{ paragon.inspiration }} % (MAX {{ paragon.inspiration * paragon.levels }}%)</div>
+					</div>
 				</div>
-				<div v-if="paragon.fortune" class="attribute fortune">
-					<img :src="require(`~/assets/attributes/fortune.png`)" alt="Fortune">
-					<div class="value">{{ paragon.fortune }} % (MAX {{ paragon.fortune * paragon.levels }}%)</div>
+				<div class="costs">
+					<template v-if="paragon.item">
+						<div class="item-cost">{{ paragon.cost }}x <item :item="paragon.item" class="item" /></div>
+						<div>per level</div>
+					</template>
+					<template v-if="group">One level per {{ group }}</template>
 				</div>
-				<div v-if="paragon.provisions" class="attribute provisions">
-					<img :src="require(`~/assets/attributes/provisions.png`)" alt="Provisions">
-					<div class="value">{{ paragon.provisions }} % (MAX {{ paragon.provisions * paragon.levels }}%)</div>
-				</div>
-				<div v-if="paragon.inspiration" class="attribute inspiration">
-					<img :src="require(`~/assets/attributes/inspiration.png`)" alt="Inspiration">
-					<div class="value">{{ paragon.inspiration }} % (MAX {{ paragon.inspiration * paragon.levels }}%)</div>
-				</div>
-			</div>
-			<div class="costs">
-				<template v-if="paragon.item">
-					<div class="item-cost">{{ paragon.cost }}x <item :item="paragon.item" class="item" /></div>
-					<div>per level</div>
-				</template>
-				<template v-if="group">One level per {{ group }}</template>
 			</div>
 		</div>
 	</div>
@@ -56,7 +61,6 @@ export default Vue.extend({
 .paragon {
 	position: relative;
 	display: flex;
-	flex-direction: column;
 	padding: .25rem .5rem;
 	margin: .25rem;
 	background: rgb(46, 46, 46);
@@ -77,6 +81,11 @@ export default Vue.extend({
 		position: absolute;
 		z-index: 9;
 	}
+}
+.paragon-info {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }
 header {
 	font-size: 1.1rem;

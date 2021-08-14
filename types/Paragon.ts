@@ -16,4 +16,5 @@ export interface Paragon {
 	heroes: Hero[]
 	hero_groups: HeroGroup[]
 	item?: Item
+	icon: any
 }

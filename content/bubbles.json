@@ -1,0 +1,22 @@
+[
+  {"name": "Default","slug": "default", "unlock": "Unlocked at the beginning of the game", "picture": "0.png"},
+  {"name": "Event 1","slug": "event-1","unlock": "Unlocked during the event 1''","picture": "1.png", "event":""},
+  {"name": "Event 2","slug": "event-2","unlock": "Unlocked during the event 2''","picture": "2.png", "event":""},
+  {"name": "Event 3","slug": "event-3","unlock": "Unlocked during the event 3''","picture": "3.png", "event":""},
+  {"name": "Event 4","slug": "event-4","unlock": "Unlocked during the event 4''","picture": "4.png", "event":""},
+  {"name": "Event 5","slug": "event-5","unlock": "Unlocked during the event 5''","picture": "5.png", "event":""},
+  {"name": "Event 6","slug": "event-6","unlock": "Unlocked during the event 6''","picture": "6.png", "event":""},
+  {"name": "Event 7","slug": "event-7","unlock": "Unlocked during the event 7''","picture": "7.png", "event":""},
+  {"name": "Event 8","slug": "event-8","unlock": "Unlocked during the event 8''","picture": "8.png", "event":""},
+  {"name": "Event 9","slug": "event-9","unlock": "Unlocked during the event 9''","picture": "9.png", "event":""},
+  {"name": "Event 10","slug": "event-10","unlock": "Unlocked during the event 10''","picture": "10.png", "event":""},
+  {"name": "Event 11","slug": "event-11","unlock": "Unlocked during the event 11''","picture": "11.png", "event":""},
+  {"name": "Event 12","slug": "event-12","unlock": "Unlocked during the event 12''","picture": "12.png", "event":""},
+  {"name": "Event 13","slug": "event-13","unlock": "Unlocked during the event 13''","picture": "13.png", "event":""},
+  {"name": "Event 14","slug": "event-14","unlock": "Unlocked during the event 14''","picture": "14.png", "event":""},
+  {"name": "Event 15","slug": "event-15","unlock": "Unlocked during the event 15''","picture": "15.png", "event":""},
+  {"name": "Event 16","slug": "event-16","unlock": "Unlocked during the event 16''","picture": "16.png", "event":""},
+  {"name": "Event 17","slug": "event-17","unlock": "Unlocked during the event 17''","picture": "17.png", "event":""},
+  {"name": "Event 18","slug": "event-18","unlock": "Unlocked during the event 'Renowned Merchant'","picture": "18.png", "event":""},
+  {"name": "Event 19","slug": "event-19","unlock": "Unlocked during the event 'Equipment Trial'","picture": "19.png", "event":""}
+]

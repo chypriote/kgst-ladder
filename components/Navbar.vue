@@ -9,16 +9,16 @@
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/a/a0/MaidenIcon.png" alt="Maidens" />
 				Maidens
 			</nuxt-link>
-			<nuxt-link to="/events" title="Highest VIP" class="menu-item left">
-				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Events" />
+			<nuxt-link to="/events" title="Events" class="menu-item left">
+				<img src="~/assets/menu/challenges.png" alt="Events" />
 				Events
 			</nuxt-link>
 			<nuxt-link to="/calendar" title="Calendar" class="menu-item left">
-				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Calendar" />
-				Challenges
+				<img src="~/assets/menu/calendar.png" alt="Calendar" />
+				Calendar
 			</nuxt-link>
 			<nuxt-link to="/game" title="Compendium" class="menu-item left">
-				<img src="~/assets/menu/book.png" alt="Items" />
+				<img src="~/assets/menu/book.png" alt="Game" />
 				Game
 			</nuxt-link>
 		</div>

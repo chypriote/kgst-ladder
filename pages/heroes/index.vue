@@ -99,7 +99,7 @@ section {
 .heroes {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	.hero-card {margin: .25rem;}
 }
 </style>

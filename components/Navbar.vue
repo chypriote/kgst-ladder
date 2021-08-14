@@ -1,8 +1,8 @@
 <template>
 	<nav class="navbar container">
 		<div class="menu menu-left">
-			<nuxt-link to="/heroes" title="Highest Kingdom Power" class="menu-item left">
-				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/9/9d/HeroIcon.png" alt="Heroes" />
+			<nuxt-link to="/heroes" title="Heroes" class="menu-item left">
+				<img src="~/assets/menu/heroes.png" alt="Heroes" />
 				Heroes
 			</nuxt-link>
 			<nuxt-link to="/maidens" title="Most heroes" class="menu-item left">
@@ -17,9 +17,9 @@
 				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/f/fb/LoginIcon.png" alt="Calendar" />
 				Challenges
 			</nuxt-link>
-			<nuxt-link to="/items" title="Highest VIP" class="menu-item left">
-				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/1/19/TreasureIcon.png" alt="Events" />
-				Items
+			<nuxt-link to="/game" title="Compendium" class="menu-item left">
+				<img src="~/assets/menu/book.png" alt="Items" />
+				Game
 			</nuxt-link>
 		</div>
 		<div class="logo">
@@ -40,8 +40,8 @@
 				<img src="https://assets.thesilphroad.com/img/pogo-assets/shiny-icon.png" alt="text" />
 				Heroes comparison
 			</nuxt-link>
-			<nuxt-link to="/vip0" title="Most powerful VIP0" class="menu-item right">
-				<img src="https://assets.thesilphroad.com/img/pogo-assets/shiny-icon.png" alt="text" />
+			<nuxt-link to="/leaderboards" title="Leaderboards" class="menu-item right">
+				<img src="~/assets/menu/rank.png" alt="Leaderboards" />
 				Leaderboards
 			</nuxt-link>
 		</div>

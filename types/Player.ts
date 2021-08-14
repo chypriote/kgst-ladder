@@ -21,8 +21,11 @@ export interface Player {
 	children: number
 	intimacy: number
 
-	battle?: number;
-	ratio?: number;
+	battle?: number
+	ratio?: number
+
+	headType: number
+	headId: number
 
 	notes: string
 	favorite: boolean

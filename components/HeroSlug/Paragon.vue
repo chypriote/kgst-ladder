@@ -4,25 +4,25 @@
 		<div class="details">
 			<div class="attributes">
 				<div v-if="paragon.military" class="attribute military">
-					<img :src="require(`~/assets/military.png`)" alt="Military">
+					<img :src="require(`~/assets/attributes/military.png`)" alt="Military">
 					<div class="value">{{ paragon.military }} % (MAX {{ paragon.military * paragon.levels }}%)</div>
 				</div>
 				<div v-if="paragon.fortune" class="attribute fortune">
-					<img :src="require(`~/assets/fortune.png`)" alt="Fortune">
+					<img :src="require(`~/assets/attributes/fortune.png`)" alt="Fortune">
 					<div class="value">{{ paragon.fortune }} % (MAX {{ paragon.fortune * paragon.levels }}%)</div>
 				</div>
 				<div v-if="paragon.provisions" class="attribute provisions">
-					<img :src="require(`~/assets/provisions.png`)" alt="Provisions">
+					<img :src="require(`~/assets/attributes/provisions.png`)" alt="Provisions">
 					<div class="value">{{ paragon.provisions }} % (MAX {{ paragon.provisions * paragon.levels }}%)</div>
 				</div>
 				<div v-if="paragon.inspiration" class="attribute inspiration">
-					<img :src="require(`~/assets/inspiration.png`)" alt="Inspiration">
+					<img :src="require(`~/assets/attributes/inspiration.png`)" alt="Inspiration">
 					<div class="value">{{ paragon.inspiration }} % (MAX {{ paragon.inspiration * paragon.levels }}%)</div>
 				</div>
 			</div>
 			<div class="costs">
 				<template v-if="paragon.item">
-					<div>{{ paragon.cost }}x <span class="item">{{ paragon.item.name }}</span></div>
+					<div class="item-cost">{{ paragon.cost }}x <item :item="paragon.item" class="item" /></div>
 					<div>per level</div>
 				</template>
 				<template v-if="group">One level per {{ group }}</template>
@@ -33,9 +33,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Item from '~/components/Item.vue'
 
 export default Vue.extend({
 	name: 'Paragon',
+	components: { Item },
 	props: {
 		paragon: {
 			type: Object,
@@ -102,5 +104,10 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	.item-cost {
+		display: flex;
+		align-items: center;
+		.item {max-width: 2rem;margin-left: .5rem;}
+	}
 }
 </style>

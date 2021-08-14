@@ -3,7 +3,7 @@
 		<div v-if="skill.unlockable" class="unlockable hint--top" :aria-label="skill.skins[0].name">🔒</div>
 		<header>{{ skill.name }}</header>
 		<div class="details">
-			<img :src="require(`~/assets/${skill.attribute}.png`)" :alt="skill.attribute">
+			<img :src="require(`~/assets/attributes/${skill.attribute}.png`)" :alt="skill.attribute">
 			<div class="stars"><span v-for="i of skill.stars" :key="`star-${i}`">⭐</span></div>
 		</div>
 	</div>
@@ -55,7 +55,7 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	img {max-height: 1.5rem;}
+	img {max-height: 2rem;}
 	.stars {font-size: .8rem;height: 1rem;}
 }
 </style>

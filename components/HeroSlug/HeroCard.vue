@@ -6,13 +6,17 @@
 					<div class="hero-picture">
 						<img v-if="hero.picture" :src="hero.picture.formats.medium.url" :alt="hero.name" />
 					</div>
-					<div class="stars"><span v-for="i of hero.stars" :key="`star-${i}`">⭐</span></div>
-					<div class="focuses">
-						<div class="focus hint--top" :aria-label="hero.focus">
-							<img :src="require(`~/assets/${hero.focus}.png`)" :alt="hero.focus">
-						</div>
-						<div class="second hint--top" :aria-label="hero.focus">
-							<img v-if="hero.second_focus" :src="require(`~/assets/${hero.second_focus}.png`)" :alt="hero.second_focus">
+					<div class="hero-details-wrapper">
+						<div class="hero-details">
+							<div class="stars"><img :src="require(`~/assets/stars/${hero.stars}.png`)" :alt="hero.stars" /></div>
+							<div class="focuses">
+								<div class="focus hint--top" :aria-label="hero.focus">
+									<img :src="require(`~/assets/attributes/${hero.focus}.png`)" :alt="hero.focus">
+								</div>
+								<div class="second hint--top" :aria-label="hero.focus">
+									<img v-if="hero.second_focus" :src="require(`~/assets/attributes/${hero.second_focus}.png`)" :alt="hero.second_focus">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -23,10 +27,10 @@
 					<div v-if="hero.hid" class="hero-id">{{ `#${hero.hid}` }}</div>
 
 					<div class="values">
-						<hero-value :type="'military'" :value="attributeValue(Attribute.MILITARY)" /> {{ qualityBonus(Attribute.MILITARY) }} {{ bondBonus(Attribute.MILITARY) }} {{ paragonValue(Attribute.MILITARY) }}
-						<hero-value :type="'fortune'" :value="attributeValue(Attribute.FORTUNE)" /> {{ qualityBonus(Attribute.FORTUNE) }} {{ bondBonus(Attribute.FORTUNE) }} {{ paragonValue(Attribute.FORTUNE) }}
-						<hero-value :type="'provisions'" :value="attributeValue(Attribute.PROVISIONS)" /> {{ qualityBonus(Attribute.PROVISIONS) }} {{ bondBonus(Attribute.PROVISIONS) }} {{ paragonValue(Attribute.PROVISIONS) }}
-						<hero-value :type="'inspiration'" :value="attributeValue(Attribute.INSPIRATION)" /> {{ qualityBonus(Attribute.INSPIRATION) }} {{ bondBonus(Attribute.INSPIRATION) }} {{ paragonValue(Attribute.INSPIRATION) }}
+						<hero-value :type="'military'" :value="attributeValue(Attribute.MILITARY)" />
+						<hero-value :type="'fortune'" :value="attributeValue(Attribute.FORTUNE)" />
+						<hero-value :type="'provisions'" :value="attributeValue(Attribute.PROVISIONS)" />
+						<hero-value :type="'inspiration'" :value="attributeValue(Attribute.INSPIRATION)" />
 					</div>
 				</div>
 			</div>
@@ -66,7 +70,7 @@ export default Vue.extend({
 		qualityBonus (attribute: Attribute): number {
 			return this.hero.quality_skills
 				.filter((s: QualitySkill) => s.attribute === attribute)
-				.reduce((sum: number, s: QualitySkill) => sum + s.stars, 0) * 0.1 * ((400 ^ 2) + 400 + 98)
+				.reduce((sum: number, s: QualitySkill) => sum + s.stars, 0) * (0.1 * (400 ^ 2) + 0.1 * 400 + 9.75)
 		},
 		maidenBonusValue (attribute: Attribute): number {
 			if (!this.hero.maiden) { return 0 }
@@ -93,12 +97,16 @@ export default Vue.extend({
 			return this.qualityBonus(attribute) * this.paragonValue(attribute)
 		},
 		attributeValue (attribute: Attribute): number {
-			return this.qualityBonus(attribute) +
-				this.bondBonus(attribute) +
-				this.paragonBonus(attribute) +
-				this.bondBonus(attribute) * this.paragonValue(attribute) +
+			return this.qualityBonus(attribute) * (
+				1 +
+					this.maidenMultiplierValue(attribute) +
+					this.paragonValue(attribute) +
+					this.bondBonus(attribute) * this.paragonValue(attribute) +
+				15
+			) +
 				// @ts-ignore
-				frame[this.hero.stars]
+				frame[this.hero.stars] +
+				this.maidenBonusValue(attribute)
 		},
 	},
 })
@@ -110,32 +118,44 @@ export default Vue.extend({
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+}
+.hero-details-wrapper {
+	position: absolute;
+	width: 100%;
+	bottom: 2rem;
+}
+.hero-details {
+	position: relative;
+	img {filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, .5));}
+	.stars {
+		text-align: center;
+	}
 	.focuses {
+		text-align: center;
 		position: absolute;
-		top: 1rem;
-		left: 1rem;
-		.focus {
-			max-height: 2rem;
-			max-width: 2rem;
-		}
+		z-index: 2;
+		display: flex;
+		margin: 0 auto;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		top: 2rem;
+		.focus {max-height: 4rem;max-width: 4rem;}
 		.second {
+			max-height: 3rem;
+			max-width: 3rem;
+			left: 3.5rem;
+			right: 0;
+			bottom: -.5rem;
 			position: absolute;
-			top: .75rem;
-			right: -1rem;
-			max-height: 2rem;
-			max-width: 2rem;
+			text-align: center;
+			margin: 0 auto;
 		}
 	}
 }
 .hero-picture {
 	padding: .5rem 1rem;
 	flex-grow: 1;
-}
-.stars {
-	text-align: center;
-	font-size: 1.5rem;
-	line-height: 1.5;
-	padding: .5rem 1rem;
 }
 .col.right {
 	display: flex;

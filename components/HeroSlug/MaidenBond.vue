@@ -1,8 +1,8 @@
 <template>
 	<div class="maiden-bond">
 		<div class="bond-attributes">
-			<img :src="require(`~/assets/${bond.attribute}.png`)" :alt="bond.attribute">
-			<img v-if="bond.second_attribute" :src="require(`~/assets/${bond.second_attribute}.png`)" :alt="bond.second_attribute">
+			<img :src="require(`~/assets/attributes/${bond.attribute}.png`)" :alt="bond.attribute">
+			<img v-if="bond.second_attribute" :src="require(`~/assets/attributes/${bond.second_attribute}.png`)" :alt="bond.second_attribute">
 		</div>
 		<div class="bond-details">
 			<div class="bond-value">

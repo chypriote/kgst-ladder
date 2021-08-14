@@ -1,7 +1,7 @@
 <template>
 	<div class="hero-value">
 		<header>
-			<img :src="require(`~/assets/${type}.png`)" :alt="type" />
+			<img :src="require(`~/assets/attributes/${type}.png`)" :alt="type" />
 			<span>{{ type }}</span>
 		</header>
 		<div class="display">
@@ -52,7 +52,7 @@ export default Vue.extend({
 	header {
 		display: flex;
 		align-items: center;
-		img {max-height: 1.25rem;margin-right: .5rem;}
+		img {max-height: 2rem;margin-right: .5rem;}
 		span {
 			line-height: 1.5;
 			font-size: 1.1rem;

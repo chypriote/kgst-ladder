@@ -9,10 +9,10 @@
 		</footer>
 		<div class="focuses">
 			<div class="focus hint--top" :aria-label="hero.focus">
-				<img :src="require(`~/assets/${hero.focus}.png`)" :alt="hero.focus">
+				<img :src="require(`~/assets/attributes/${hero.focus}.png`)" :alt="hero.focus">
 			</div>
 			<div class="second hint--top" :aria-label="hero.focus">
-				<img v-if="hero.second_focus" :src="require(`~/assets/${hero.second_focus}.png`)" :alt="hero.second_focus">
+				<img v-if="hero.second_focus" :src="require(`~/assets/attributes/${hero.second_focus}.png`)" :alt="hero.second_focus">
 			</div>
 		</div>
 	</nuxt-link>

@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Maiden } from '~/types/Maiden'
+import { Context } from '@nuxt/types'
 import MaidenCard from '~/components/MaidenSlug/MaidenCard.vue'
 import MaidenSkinsCard from '~/components/MaidenSlug/MaidenSkinsCard.vue'
 import MaidenHeroCard from '~/components/MaidenSlug/MaidenHeroCard.vue'
@@ -26,7 +26,7 @@ import MaidenHeroCard from '~/components/MaidenSlug/MaidenHeroCard.vue'
 export default Vue.extend({
 	name: 'MaidensSlug',
 	components: { MaidenSkinsCard, MaidenHeroCard, MaidenCard },
-	async asyncData ({ $strapi, params }): Promise<{ maiden: Maiden }> {
+	async asyncData ({ $strapi, params }: Context): Promise<object> {
 		const maiden = await $strapi.findOne('maidens', params.slug)
 		return { maiden }
 	},
@@ -35,12 +35,6 @@ export default Vue.extend({
 
 <style scoped>
 .card {
-	position: relative;
-	transition: transform .6s;
-	transform-style: preserve-3d;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
-	background: rgb(38, 38, 38);
-	color: white;
 	&.maiden {margin-bottom: 2rem;}
 	&.hero {margin-bottom: 2rem;}
 	&.maiden-skills {margin-bottom: 2rem;}

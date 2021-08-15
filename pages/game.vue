@@ -38,7 +38,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
 	name: 'Compendium',
-	async asyncData ({ $content }) {
+	async asyncData ({ $content }): Promise<any> {
 		const [frames, bubbles] = await Promise.all([
 			$content('frames').limit(100).fetch(),
 			$content('bubbles').limit(100).fetch(),
@@ -49,26 +49,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.darker {
-	background: rgba(37, 37, 37, .91);
-	color: rgba(255, 255, 255, .7);
-}
-.card {
-	position: relative;
-	transition: transform .6s;
-	transform-style: preserve-3d;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
-	background: rgb(38, 38, 38);
-	color: white;
-}
-.section-title {
-	text-transform: uppercase;
-	font-size: 1.2rem;
-	letter-spacing: 4px;
-	text-shadow: 0 1px 3px rgba(0, 0, 0, .36);
-	font-weight: bold;
-	margin: 1rem 0 .5rem;
-}
 .item {
 	display: flex;
 	flex-direction: column;

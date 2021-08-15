@@ -1,6 +1,16 @@
 /* eslint-disable no-use-before-define */
 import { Item } from '~/types/Item'
 
+export interface EventType {
+	id: number
+	name: string
+	picture?: any
+	strategy: string
+	vip0_strategy: string
+	cost_effectiveness: number
+	events: Event[]
+}
+
 export interface EventDrop {
 	id: number
 	probability?: number
@@ -27,4 +37,5 @@ export interface Event {
 	end?: Date
 	event_shops: EventShop[]
 	event_drops: EventDrop[]
+	event_type: EventType
 }

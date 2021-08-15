@@ -6,7 +6,7 @@
 				Heroes
 			</nuxt-link>
 			<nuxt-link to="/maidens" title="Most heroes" class="menu-item left">
-				<img src="https://static.wikia.nocookie.net/kings-throne-game-of-lust/images/a/a0/MaidenIcon.png" alt="Maidens" />
+				<img src="~/assets/menu/maidens.png" alt="Maidens" />
 				Maidens
 			</nuxt-link>
 			<nuxt-link to="/events" title="Events" class="menu-item left">
@@ -24,12 +24,12 @@
 		</div>
 		<div class="logo">
 			<nuxt-link to="/">
-				<img src="https://assets.thesilphroad.com/img/snoo_sr_icon.png" alt="Hme" />
+				<img class="brand" src="/act5.png" alt="Home" />
 			</nuxt-link>
 		</div>
 		<div class="menu menu-right">
-			<nuxt-link to="/power" title="Highest Kingdom Power" class="menu-item right">
-				<img src="https://assets.thesilphroad.com/img/pogo-assets/shiny-icon.png" alt="text" />
+			<nuxt-link to="/power" title="Drop Rates" class="menu-item right">
+				<img src="~/assets/menu/dices.png" alt="Drop Rates" />
 				Drop Rates
 			</nuxt-link>
 			<nuxt-link to="/heroes" title="Most heroes" class="menu-item right">
@@ -37,7 +37,7 @@
 				Power Calculator
 			</nuxt-link>
 			<nuxt-link to="/vip" title="Highest VIP" class="menu-item right">
-				<img src="https://assets.thesilphroad.com/img/pogo-assets/shiny-icon.png" alt="text" />
+				<img src="~/assets/menu/training.png" alt="Heroes Comparison" />
 				Heroes comparison
 			</nuxt-link>
 			<nuxt-link to="/leaderboards" title="Leaderboards" class="menu-item right">
@@ -73,6 +73,17 @@ export default Vue.extend({
 	&.menu-left {background: #3a3a3a;margin-right: 1rem;}
 	&.menu-right {background: var(--state-primary-35);margin-left: 1rem;}
 }
+.logo {
+	position: absolute;
+	z-index: 2;
+	.brand {
+		height: 9rem;
+		cursor: pointer;
+		filter: grayscale(1) drop-shadow(1px 1px 1px #434343ad);
+		transition: all 200ms ease;
+		&:hover {filter: grayscale(0) drop-shadow(1px 1px 1px #434343ad);position: relative;top: -1.5px;}
+	}
+}
 .menu-item {
 	position: relative;
 	flex: 1;
@@ -81,7 +92,7 @@ export default Vue.extend({
 	display: flex;
 	flex-direction: column;
 	text-transform: uppercase;
-	letter-spacing: 4px;
+	letter-spacing: 2px;
 	text-align: center;
 	line-height: 1.1em;
 	text-decoration: none;
@@ -111,16 +122,6 @@ export default Vue.extend({
 	&.right {
 		&:first-of-type {margin-left: 1rem;}
 		&:not(:last-of-type) {border-right: 1px solid rgba(0, 0, 0, .18);}
-	}
-}
-.logo {
-	position: absolute;
-	img {
-		height: 7rem;
-		cursor: pointer;
-		filter: invert(0) drop-shadow(1px 1px 1px #434343ad);
-		opacity: .9;
-		&:hover {opacity: 1;position: relative;top: -1.5px;}
 	}
 }
 </style>

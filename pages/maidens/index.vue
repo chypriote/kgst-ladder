@@ -19,6 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Context } from '@nuxt/types'
 import MaidenCard from '~/components/Maidens/MaidenCard.vue'
 import { Maiden } from '~/types/Maiden'
 
@@ -26,7 +27,7 @@ export default Vue.extend({
 	name: 'MaidensIndex',
 	components: { MaidenCard },
 	layout: 'default',
-	async asyncData ({ $strapi }): Promise<{ maidens: Maiden[] }> {
+	async asyncData ({ $strapi }: Context): Promise<{ maidens: Maiden[] }> {
 		const maidens = await $strapi.find('maidens', { _sort: 'name:asc', _limit: 500 })
 		return { maidens }
 	},

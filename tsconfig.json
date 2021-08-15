@@ -23,6 +23,7 @@
       "@nuxt/types",
       "@nuxt/content",
       "@nuxtjs/axios",
+      "@nuxtjs/strapi",
       "@types/node",
       "types"
     ]

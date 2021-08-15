@@ -27,9 +27,3 @@ export default Vue.extend({
 	layout: 'default',
 })
 </script>
-<style scoped>
-.darker {
-	background: rgba(37, 37, 37, .91);
-	color: rgba(255, 255, 255, .7);
-}
-</style>

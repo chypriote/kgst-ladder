@@ -19,6 +19,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Context } from '@nuxt/types'
 import HeroCard from '~/components/HeroSlug/HeroCard.vue'
 import HeroMaidenCard from '~/components/HeroSlug/HeroMaidenCard.vue'
 import HeroSkillsCard from '~/components/HeroSlug/HeroSkillsCard.vue'
@@ -29,7 +30,7 @@ interface IData { hero: Hero }
 export default Vue.extend({
 	name: 'HeroSlug',
 	components: { HeroSkinsCard, HeroSkillsCard, HeroMaidenCard, HeroCard },
-	async asyncData ({ $strapi, params }): Promise<IData> {
+	async asyncData ({ $strapi, params }: Context): Promise<IData> {
 		const hero = await $strapi.findOne('heroes', params.slug)
 		return { hero }
 	},
@@ -38,12 +39,6 @@ export default Vue.extend({
 
 <style scoped>
 .card {
-	position: relative;
-	transition: transform .6s;
-	transform-style: preserve-3d;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
-	background: rgb(38, 38, 38);
-	color: white;
 	&.hero {margin-bottom: 2rem;}
 	&.maiden {margin-bottom: 2rem;}
 	&.hero-skills {margin-bottom: 2rem;}

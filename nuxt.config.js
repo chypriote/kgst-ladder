@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const isDev = process.env.context !== 'production'
+const isDev = process.env.NODE_ENV !== 'production'
 
 export default {
 	target: 'static',

@@ -62,6 +62,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Context } from '@nuxt/types'
 import { Hero } from '~/types/Hero'
 import HeroNav from '~/components/HeroNav.vue'
 import HeroCard from '~/components/Heroes/HeroCard.vue'
@@ -69,37 +70,9 @@ import HeroCard from '~/components/Heroes/HeroCard.vue'
 export default Vue.extend({
 	components: { HeroCard, HeroNav },
 	layout: 'default',
-	async asyncData ({ $strapi }): Promise<{ heroes: Hero[] }> {
+	async asyncData ({ $strapi }: Context): Promise<{ heroes: Hero[] }> {
 		const heroes = await $strapi.find('heroes', { _sort: 'hid:asc', _limit: 500 })
 		return { heroes }
 	},
 })
 </script>
-<style scoped>
-.darker {
-	background: rgba(37, 37, 37, .91);
-	color: rgba(255, 255, 255, .7);
-}
-.page-title {
-	margin: 1rem 0 2rem;
-}
-.row {padding-bottom: 1rem;}
-section {
-	margin-top: .5rem;
-	p {margin: 0 0 .5rem;padding: .5rem 0;text-align: justify;}
-	.section-title {
-		text-transform: uppercase;
-		font-size: 1.2rem;
-		color: rgba(255, 255, 255, .8);
-		letter-spacing: 4px;
-		text-shadow: 0 1px 3px #0000005c;
-		font-weight: bold;
-	}
-}
-.heroes {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	.hero-card {margin: .25rem;}
-}
-</style>
